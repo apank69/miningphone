@@ -83,7 +83,7 @@ echo "Input Your BTC Address: ";
 $btc = trim(fgets(STDIN));
 //if ($cookies == false) exit($time . "No such file!");
 for($i=0; $i<100; $i++) {
-    echo "[" . date("H:i:s") . "] Claiming...\n";
+    echo "[" . date("H:i:s") . "] Claiming...a\n";
     $claim = call($btc);
     //print_r($claim);
     //$response = @json_decode($claim, 1);
@@ -98,6 +98,6 @@ for($i=0; $i<100; $i++) {
     } else {
         exit("[" . date("H:i:s") . "] " . $RD . "Invalid cookies!" . $CC);
     }
-    echo "[" . date("H:i:s") . "] Sleep for 15sec...\n";
-    sleep(15);
+    echo "[" . date("H:i:s") . "] Sleep for 4sec...\n";
+    sleep(4);
 }
