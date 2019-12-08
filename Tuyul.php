@@ -6,21 +6,21 @@ error_reporting(0);
 function call($addr) {
     $data= "address=$addr&sponsor=10507";
     $cok = tempnam('tmp','avo'.rand(1000000,9999999).'tmp.txt');
-    $c = curl_init("https://kerhanesi.com.cpucap/bitcoin/terminal");
-    curl_setopt($c, CURLOPT_REFERER, "https://kerhanesi.com.cpucap/bitcoin/terminal");
+    $c = curl_init("https://bitcoinrain.io");
+    curl_setopt($c, CURLOPT_REFERER, "https://bitcoinrain.io");
     curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
     curl_setopt($c, CURLOPT_POSTFIELDS, $data);
     curl_setopt($c, CURLOPT_POST, true);
     curl_setopt($c, CURLOPT_ENCODING, 'gzip, deflate');
-    //curl_setopt($c, CURLOPT_VERBOSE, true);
+    curl_setopt($c, CURLOPT_VERBOSE, true);
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($c, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 9999);
     curl_setopt($c, CURLOPT_HEADER, true);
     curl_setopt($c, CURLOPT_COOKIEJAR, $cok);
     curl_setopt($c, CURLOPT_COOKIEFILE, $cok); 
-    //curl_setopt($c, CURLOPT_COOKIEFILE, $cookie);
+    curl_setopt($c, CURLOPT_COOKIEFILE, $cookie);
     $response = curl_exec($c);
     $httpcode = curl_getinfo($c);
     //$error = curl_strerror($c);
@@ -33,8 +33,8 @@ function call($addr) {
     
  $data= "faucetclaim=$addr";
     
-    $c = curl_init("https://kerhanesi.com.cpucap/bitcoin/terminal");
-    curl_setopt($c, CURLOPT_REFERER, "https://kerhanesi.com.cpucap/bitcoin/terminal");
+    $c = curl_init("https://bitcoinrain.io");
+    curl_setopt($c, CURLOPT_REFERER, "https://bitcoinrain.io");
     curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
     curl_setopt($c, CURLOPT_POSTFIELDS, $data);
@@ -83,7 +83,7 @@ echo "Input Your BTC Address: ";
 $btc = trim(fgets(STDIN));
 //if ($cookies == false) exit($time . "No such file!");
 for($i=0; $i<100; $i++) {
-    echo "[" . date("H:i:s") . "] Claiming...a\n";
+    echo "[" . date("H:i:s") . "] Claiming...\n";
     $claim = call($btc);
     //print_r($claim);
     //$response = @json_decode($claim, 1);
@@ -98,6 +98,6 @@ for($i=0; $i<100; $i++) {
     } else {
         exit("[" . date("H:i:s") . "] " . $RD . "Invalid cookies!" . $CC);
     }
-    echo "[" . date("H:i:s") . "] Sleep for 4sec...\n";
-    sleep(4);
+    echo "[" . date("H:i:s") . "] Sleep for 5sec...\n";
+    sleep(5);
 }
