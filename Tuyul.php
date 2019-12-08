@@ -4,7 +4,7 @@ error_reporting(0);
 
 
 function call($addr) {
-        $data= "address=$addr&sponsor= http://bitcoinrain.com";
+        $data= "address=$addr&sponsor= 082319791067";
     $cok = tempnam('tmp','avo'.rand(1000000,9999999).'tmp.txt');
     $c = curl_init("https://bitcoinrain.io");
     curl_setopt($c, CURLOPT_REFERER, "https://bitcoinrain.io");
